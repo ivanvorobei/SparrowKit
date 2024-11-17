@@ -11,12 +11,13 @@ public struct FileManagerDestination {
     
     // MARK: - Init
     
-    public init(directory: FileManager.SearchPathDirectory = .documentDirectory, path: String, file: String) {
+    public init(directory: FileManager.SearchPathDirectory, path: String, file: String) {
         let fileManager = FileManager.default
         do {
             let documentDirectory = try fileManager.url(for: directory, in: .userDomainMask, appropriateFor: nil, create: true)
             self.directory = documentDirectory.appendingPathComponent(Self.cleaned(path))
         } catch {
+            print(error.localizedDescription)
             fatalError()
         }
         self.file = file

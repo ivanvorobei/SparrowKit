@@ -6,6 +6,10 @@ extension FileManager {
         return fileExists(atPath: destination.url.path)
     }
     
+    public func folderExist(for destination: FileManagerDestination) -> Bool {
+        return fileExists(atPath: destination.directory.path)
+    }
+    
     public func get(from destination: FileManagerDestination) -> Data? {
         do {
             return try Data(contentsOf: destination.url)
@@ -32,6 +36,16 @@ extension FileManager {
         do {
             if fileExists(atPath: destination.url.path) {
                 try removeItem(at: destination.url)
+            }
+        } catch {
+            debug("Can't delete data, error: \(error.localizedDescription)")
+        }
+    }
+    
+    public func delete(at url: URL) {
+        do {
+            if fileExists(atPath: url.path) {
+                try removeItem(at: url)
             }
         } catch {
             debug("Can't delete data, error: \(error.localizedDescription)")
