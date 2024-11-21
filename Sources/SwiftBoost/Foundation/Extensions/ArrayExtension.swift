@@ -49,3 +49,10 @@ public extension Array where Element: Equatable {
         return result
     }
 }
+
+public extension ArraySlice {
+    
+    var array: [Element] {
+        return Array(self)
+    }
+}
