@@ -19,5 +19,11 @@ public extension UIApplication {
             }
         }
     }
+    
+    var rootController: UIViewController? {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return nil }
+        guard let rootViewController = scene.windows.first?.rootViewController else { return nil }
+        return rootViewController
+    }
 }
 #endif

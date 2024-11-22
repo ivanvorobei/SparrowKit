@@ -9,7 +9,7 @@ import Foundation
  */
 public enum Logger {
     
-    public static func configure(levels: [Level], fileNameMode: FileNameMode) {
+    public static func configure(levels: [Level] = Level.allCases, fileNameMode: FileNameMode = .show) {
         Configurator.shared.levels = levels
         Configurator.shared.fileNameMode = fileNameMode
     }
