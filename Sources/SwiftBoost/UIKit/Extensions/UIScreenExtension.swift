@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public extension UIScreen {
@@ -9,3 +10,4 @@ public extension UIScreen {
         return cornerRadius
     }
 }
+#endif
