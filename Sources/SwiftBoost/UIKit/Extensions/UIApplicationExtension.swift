@@ -25,5 +25,16 @@ public extension UIApplication {
         guard let rootViewController = scene.windows.first?.rootViewController else { return nil }
         return rootViewController
     }
+    
+    var topController: UIViewController? {
+        if var topController = self.rootController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            return topController
+        }
+        return nil
+    }
+    
 }
 #endif
