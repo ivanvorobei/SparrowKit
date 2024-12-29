@@ -38,7 +38,7 @@ public enum Logger {
                 break
             }
             
-            print(formattedMessage)
+            debugPrint(formattedMessage)
         }
     }
     
